@@ -34,3 +34,13 @@ p {
 * {
   box-sizing: border-box;
 }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 50px;
+  margin: 50px;
+  div {
+    align-self: center;
+  }
+}

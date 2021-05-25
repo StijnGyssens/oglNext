@@ -4,6 +4,7 @@ import style from "../styles/index.module.scss";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { knex } from "../components/helpers";
 import Image from "next/image";
+import slugify from "slugify";
 
 export default function Home({ events, images }) {
   const poster = `/images/${events[0].poster}`;
@@ -66,6 +67,9 @@ export default function Home({ events, images }) {
               {events[0].start} tot {events[0].end}
             </p>
             <p>{events[0].description}</p>
+            <Link href={`/events/${events[0].EID}/${slugify(events[0].title)}`}>
+              <a>Meer info</a>
+            </Link>
           </div>
         </div>
 
@@ -77,6 +81,9 @@ export default function Home({ events, images }) {
                 {start} tot {end}
               </p>
               <p>{description}</p>
+              <Link href={`/events/${EID}/${slugify(title)}`}>
+                <a>Meer info</a>
+              </Link>
             </div>
           ))}
         </div>
