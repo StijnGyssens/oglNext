@@ -2,22 +2,24 @@ import Layout from "../components/layout.jsx";
 import Link from "next/link";
 import style from "../styles/index.module.scss";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { knex } from "../components/helpers";
+import { knex } from "../components/knex";
+import { time } from "../helpers";
 import Image from "next/image";
 import slugify from "slugify";
 
 export default function Home({ events, images }) {
   const poster = `/images/${events[0].poster}`;
+  // const start = new Date(events[0].start);
+  // // const startDatum = start.getDate() + "/" + (start.getMonth() + 1) + "/" + start.getFullYear();
+  // const startDatum = start.toLocaleString("nl-BE", {
+  //   timeZone: "UTC",
+  //   dateStyle: "full",
+  // });
+
   return (
     <Layout>
       <section className={style.intro}>
-        <h1>Home</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          praesentium nostrum tenetur reiciendis? Culpa corrupti, magnam ducimus
-          necessitatibus voluptatibus a facilis eum quidem iste cumque ipsum!
-          Dignissimos culpa repellat fuga.
-        </p>
+        <h1>OGL Londerzeel</h1>
       </section>
       <section className={style.pictureMenu}>
         <Link href="/agenda">
@@ -52,19 +54,21 @@ export default function Home({ events, images }) {
       </section>
       <section className={style.events}>
         <div className={style.next}>
-          <div className={style.poster}>
-            <Image
-              src={poster}
-              alt={events[0].title}
-              layout="fill"
-              objectFit="contain"
-              quality={100}
-            />
-          </div>
+          {events[0].poster && (
+            <div className={style.poster}>
+              <Image
+                src={poster}
+                alt={events[0].title}
+                layout="fill"
+                objectFit="contain"
+                quality={100}
+              />
+            </div>
+          )}
           <div>
             <h2>{events[0].title}</h2>
             <p>
-              {events[0].start} tot {events[0].end}
+              {time(events[0].start)} tot {time(events[0].end)}
             </p>
             <p>{events[0].description}</p>
             <Link href={`/events/${events[0].EID}/${slugify(events[0].title)}`}>
@@ -74,11 +78,11 @@ export default function Home({ events, images }) {
         </div>
 
         <div className={style.eventlist}>
-          {events.map(({ EID, title, start, end, description }) => (
+          {events.slice(0, 5).map(({ EID, title, start, end, description }) => (
             <div key={EID}>
               <h2>{title}</h2>
               <p>
-                {start} tot {end}
+                {time(start)} tot {time(end)}
               </p>
               <p>{description}</p>
               <Link href={`/events/${EID}/${slugify(title)}`}>
@@ -88,7 +92,10 @@ export default function Home({ events, images }) {
           ))}
         </div>
       </section>
-      <section className={style.socialMedia}>socialmedia</section>
+      <section className={style.socialMedia}>
+        <div></div>
+        <div></div>
+      </section>
     </Layout>
   );
 }

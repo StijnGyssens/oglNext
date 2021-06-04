@@ -8,6 +8,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overflow-x: hidden;
   text-align: center;
+  background-color: #eee;
 }
 section {
   margin: 0 auto 30px;
@@ -42,5 +43,40 @@ p {
   margin: 50px;
   div {
     align-self: center;
+  }
+}
+
+.fotoTekst {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  a {
+    flex-basis: 500px;
+    margin: 20px;
+    padding: 30px;
+    div {
+      display: flex;
+      padding: 20px;
+      height: 200px;
+      justify-content: center;
+      align-items: center;
+      .topTekst {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        bottom: 20px;
+        background-color: white;
+        flex-basis: 50%;
+        box-shadow: 5px 5px 10px rgb(239, 128, 45);
+      }
+      .bottomFoto {
+        position: relative;
+        top: 20px;
+        right: 20px;
+        background: white;
+        flex-basis: 50%;
+        box-shadow: 5px 5px 10px rgb(239, 128, 45);
+      }
+    }
   }
 }

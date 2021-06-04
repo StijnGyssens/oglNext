@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Layout from "../../components/layout";
-import { knex } from "../../components/helpers";
+import { knex } from "../../components/knex";
+import { time } from "../../helpers";
 
 export default function Events({ event, fotos }) {
   return (
@@ -16,7 +17,7 @@ export default function Events({ event, fotos }) {
       )}
       <h1>{event[0].title}</h1>
       <p>
-        {event[0].start} tot {event[0].end}
+        {time(event[0].start)} tot {time(event[0].end)}
       </p>
       <p>{event[0].description}</p>
       <h2>Foto's</h2>
