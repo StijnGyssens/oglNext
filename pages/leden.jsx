@@ -11,16 +11,19 @@ export default function Leden({ company }) {
       <h1>Leden</h1>
       <div className="fotoTekst">
         {company.map((comp) => (
-          <Link href={`/leden/${comp.CID}/${slugify(comp.name)}`}>
+          <Link
+            href={`/leden/${comp.CID}/${slugify(comp.name)}`}
+            key={comp.CID}
+          >
             <a>
-              <div key={comp.CID}>
+              <div>
                 <div className="topTekst">
                   <p>{comp.name}</p>
                 </div>
                 {comp.logo && (
                   <div className="bottomFoto">
                     <Image
-                      src={`/images/${comp.logo}`}
+                      src={`/images/leden/${comp.logo}`}
                       alt={comp.name}
                       layout="fill"
                       objectFit="contain"
@@ -38,7 +41,7 @@ export default function Leden({ company }) {
 }
 
 export async function getServerSideProps() {
-  const com = await knex("company");
+  const com = await knex("company").orderBy("name");
   const company = JSON.parse(JSON.stringify(com));
   return {
     props: {
