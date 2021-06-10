@@ -9,7 +9,7 @@ export default function Agenda({ events, terug }) {
   return (
     <Layout>
       <h1>Agenda</h1>
-      <h2>toekomstige events</h2>
+      <h2>Toekomstige events</h2>
       <div className="fotoTekst">
         {events.map((event) => (
           <Link href={`/events/${event.EID}/${slugify(event.title)}`}>
@@ -37,14 +37,14 @@ export default function Agenda({ events, terug }) {
           </Link>
         ))}
       </div>
-      <h2>terugblik</h2>
+      <h2>Terugblik</h2>
       <div className="fotoTekst">
         {terug.map((t) => (
           <Link href={`/events/${t.EID}/${slugify(t.title)}`}>
             <a>
               <div key={t.EID}>
                 <div className="topTekst">
-                  <h2>{t.title}</h2>
+                  <h3>{t.title}</h3>
                   <p>
                     {time(t.start)} tot {time(t.end)}
                   </p>
