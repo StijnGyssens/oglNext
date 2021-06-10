@@ -12,7 +12,7 @@ export default function Contact() {
     e.preventDefault();
     console.log("Sending");
 
-    let data = {
+    const data = {
       name,
       mail,
       title,
@@ -26,22 +26,18 @@ export default function Contact() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => {
-      console.log("Response received");
-      if (res.status === 200) {
-        console.log("Response succeeded!");
-        setSubmitted(true);
-        setName("");
-        setMail("");
-        setTitle("");
-        setMessage("");
-      }
-    });
-
-    setName("");
-    setMail("");
-    setTitle("");
-    setMessage("");
+    })
+      .then((res) => {
+        console.log("Response received");
+        if (res.status === 200) {
+          console.log("blabla!");
+          setName("");
+          setMail("");
+          setTitle("");
+          setMessage("");
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
