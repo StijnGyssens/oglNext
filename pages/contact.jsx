@@ -1,57 +1,91 @@
 import Layout from "../components/layout.jsx";
-import { useState } from "react";
 import style from "../styles/contact.module.scss";
+import { useState } from "react";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
-  let email = {};
 
-  const submit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    email = { name, mail, title, message };
-    console.log(email);
-    setName("");
-    setMail("");
-    setTitle("");
-    setMessage("");
+    console.log("Sending");
+
+    let data = {
+      name,
+      mail,
+      title,
+      message,
+    };
+
+    fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log("Response received");
+      if (res.status === 200) {
+        console.log("Response succeeded!");
+        setSubmitted(true);
+        setName("");
+        setMail("");
+        setTitle("");
+        setMessage("");
+      }
+    });
   };
+
   return (
     <Layout>
       <section>
         <h1>Contact</h1>
-        <form onSubmit={submit} className={style.contactform}>
+        <form className={style.contactform}>
+          <div>
+            <label htmlFor="name">naam</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="naam"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="mail">email</label>
+            <input
+              type="email"
+              name="mail"
+              placeholder="email"
+              onChange={(e) => setMail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="title">Onderwerp</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Onderwerp"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="message">Bericht</label>
+            <textarea
+              name="message"
+              cols="30"
+              rows="10"
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+          </div>
           <input
-            type="text"
-            name="name"
-            placeholder="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            className={style.submit}
+            type="submit"
+            value="send"
+            onClick={(e) => handleSubmit(e)}
           />
-          <input
-            type="email"
-            name="mail"
-            placeholder="email"
-            value={mail}
-            onChange={(e) => setMail(e.target.value)}
-          />
-          <input
-            type="text"
-            name="title"
-            placeholder="Onderwerp"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <textarea
-            name="message"
-            cols="30"
-            rows="10"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-          <input type="submit" value="send" />
         </form>
       </section>
     </Layout>

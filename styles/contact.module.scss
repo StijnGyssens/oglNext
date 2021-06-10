@@ -1,9 +1,19 @@
 .contactform {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-content: space-between;
-  height: 300px;
+  justify-content: center;
+  align-content: center;
   width: 400px;
   margin: 0 auto;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .submit {
+    width: 100px;
+    margin: 20px auto;
+  }
 }

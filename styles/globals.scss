@@ -29,6 +29,7 @@ h2 {
   font-size: 26px;
 }
 h3 {
+  color: white;
   font-size: 20px;
 }
 
@@ -69,14 +70,14 @@ p {
       height: 200px;
       justify-content: center;
       align-items: center;
+      border-radius: 10px;
       .topTekst {
         position: relative;
         display: flex;
         flex-direction: column;
         bottom: 20px;
-        background-color: white;
+        background-color: rgb(172, 201, 189);
         flex-basis: 50%;
-        box-shadow: 5px 5px 10px rgb(239, 128, 45);
       }
       .bottomFoto {
         position: relative;
@@ -84,7 +85,6 @@ p {
         right: 20px;
         background: white;
         flex-basis: 50%;
-        box-shadow: 5px 5px 10px rgb(239, 128, 45);
       }
     }
   }
