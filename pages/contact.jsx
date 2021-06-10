@@ -37,6 +37,11 @@ export default function Contact() {
         setMessage("");
       }
     });
+
+    setName("");
+    setMail("");
+    setTitle("");
+    setMessage("");
   };
 
   return (
@@ -50,6 +55,7 @@ export default function Contact() {
               type="text"
               name="name"
               placeholder="naam"
+              value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -59,6 +65,7 @@ export default function Contact() {
               type="email"
               name="mail"
               placeholder="email"
+              value={mail}
               onChange={(e) => setMail(e.target.value)}
             />
           </div>
@@ -68,6 +75,7 @@ export default function Contact() {
               type="text"
               name="title"
               placeholder="Onderwerp"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -77,6 +85,7 @@ export default function Contact() {
               name="message"
               cols="30"
               rows="10"
+              value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>

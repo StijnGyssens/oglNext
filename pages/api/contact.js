@@ -1,12 +1,12 @@
-export default function (req, res) {
+export default async function (req, res) {
     
     let nodemailer = require('nodemailer')
-    const transporter = nodemailer.createTransport({
+    let transporter = nodemailer.createTransport({
       port: 465,
       host: "smtp.gmail.com",
       auth: {
         user: 'ogllonderzeel1840@gmail.com',
-        pass: "OGLlonderzeel1840",
+        pass: process.env.MAILPASS,
       },
       secure: true,
     })
@@ -18,7 +18,7 @@ export default function (req, res) {
       html: `<div>${req.body.message}</div><p>Sent from:
       ${req.body.mail}</p>`
     }
-    transporter.sendMail(mailData, function (err, info) {
+    await transporter.sendMail(mailData, function (err, info) {
       if(err)
         console.log(err)
       else
