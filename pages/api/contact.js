@@ -1,4 +1,4 @@
-export default async function (req, res) {
+export default function (req, res) {
     
     let nodemailer = require('nodemailer')
     let transporter = nodemailer.createTransport({
@@ -9,6 +9,8 @@ export default async function (req, res) {
         pass: process.env.MAILPASS,
       },
       secure: true,
+      debug:true,
+      logger:true,
     })
     const mailData = {
       from: 'ogllonderzeel1840@gmail.com',
@@ -18,7 +20,7 @@ export default async function (req, res) {
       html: `<div>${req.body.message}</div><p>Sent from:
       ${req.body.mail}</p>`
     }
-    await transporter.sendMail(mailData, function (err, info) {
+    transporter.sendMail(mailData, function (err, info) {
       if(err)
         console.log(err)
       else
