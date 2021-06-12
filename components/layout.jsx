@@ -14,7 +14,9 @@ export default function Layout({ children }) {
       </Head>
       <header></header>
       <nav>
-        <p>{title}</p>
+        <Link href="/">
+          <a>{title}</a>
+        </Link>
         <div>
           <Link href="/">
             <a>Home</a>

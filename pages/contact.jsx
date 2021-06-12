@@ -30,7 +30,7 @@ export default function Contact() {
       .then((res) => {
         console.log("Response received");
         if (res.status === 200) {
-          console.log("blabla!");
+          console.log("Response ok!");
           setName("");
           setMail("");
           setTitle("");
