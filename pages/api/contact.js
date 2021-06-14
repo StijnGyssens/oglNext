@@ -34,16 +34,16 @@ export default function (req, res) {
     // })
 
     const client = new SMTPClient({
-      user: 'info@mijnstageplaats.be',
+      user: 'ogllonderzeel1840@gmail.com',
       password: process.env.MAILPASS,
-      host: 'mail.axc.nl',
+      host: 'smtp.gmail.com',
       port:465,
       ssl: true,
     });
     
     const message = {
       text: req.body.message + " | Sent from: " + req.body.mail,
-      from: 'info@mijnstageplaats.be',
+      from: 'ogllonderzeel1840@gmail.com',
       to: 'stijn.gyssens@gmail.com',
       subject: req.body.title,
       attachment: [
