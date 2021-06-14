@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "emailjs": "^3.4.0",
     "facebook-sdk": "^0.3.3",
     "knex": "^0.95.6",
     "mysql2": "^2.2.5",
