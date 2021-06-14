@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./layout.module.scss";
+import ScrollToTop from "react-scroll-up";
 
 const title = "OGL Londerzeel";
 
@@ -41,7 +41,12 @@ export default function Layout({ children }) {
           </Link>
         </div>
       </nav>
-      <main>{children}</main>
+      <main>
+        {children}
+        <ScrollToTop showUnder={100}>
+          <span>TOP</span>
+        </ScrollToTop>
+      </main>
       <footer></footer>
     </div>
   );
