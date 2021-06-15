@@ -93,7 +93,7 @@ export default function Home({ events, images }) {
         </div>
 
         <div className={style.eventlist}>
-          {events.slice(0, 5).map(({ EID, title, start, end, description }) => (
+          {events.slice(0, 5).map(({ EID, title, start, end }) => (
             <div key={EID}>
               <h2>{title}</h2>
               <p className="center">

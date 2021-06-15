@@ -26,11 +26,13 @@ export default function (req, res) {
       ${req.body.mail}</p>`
     }
     transporter.sendMail(mailData, function (err, info) {
-      if(err)
+      if(err){
         console.log(err)
-      else
+        res.status(200).json({"send": "Nok"})}
+      else{
         console.log(info)
+        res.status(200).json({"send": "ok"})}
     })
 
-    res.status(200).json({"send": "ok"})
+    
   }

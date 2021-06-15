@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "./layout.module.scss";
 import ScrollToTop from "react-scroll-up";
+import { IoIosArrowDropupCircle } from "react-icons/io";
 
 const title = "OGL Londerzeel";
 
@@ -44,7 +45,9 @@ export default function Layout({ children }) {
       <main>
         {children}
         <ScrollToTop showUnder={100}>
-          <span>TOP</span>
+          <div className={styles.back}>
+            <IoIosArrowDropupCircle />
+          </div>
         </ScrollToTop>
       </main>
       <footer></footer>

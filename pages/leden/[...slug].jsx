@@ -8,44 +8,49 @@ export default function Leden({ company, person, events }) {
   return (
     <Layout>
       <h1>{company[0].name}</h1>
-      <div>
-        <h2>Adres:</h2>
-        <p>
-          {company[0].streetname} {company[0].number} {company[0].bus}
-        </p>
-        <p>
-          {company[0].postcode} {company[0].gemeente}
-        </p>
-      </div>
-      {person[0] && (
-        <div>
-          <h2>Contactpersoon: </h2>
-          <p>
-            {person[0].fname} {person[0].lname}
-          </p>
-          <p>
-            <a href={`mailto:${person[0].email}`}>{person[0].email}</a>
-          </p>
-        </div>
-      )}
-
-      <div>
-        <h2>Events door {company[0].name}</h2>
-        <div>
-          {events.map(({ EID, title, start, end, description }) => (
-            <div key={EID}>
-              <h2>{title}</h2>
+      <section>
+        <div className="flex">
+          <div>
+            <h2>Adres:</h2>
+            <p>
+              {company[0].streetname} {company[0].number} {company[0].bus}
+            </p>
+            <p>
+              {company[0].postcode} {company[0].gemeente}
+            </p>
+          </div>
+          {person[0] && (
+            <div>
+              <h2>Contactpersoon: </h2>
               <p>
-                {time(start)} tot {time(end)}
+                {person[0].fname} {person[0].lname}
               </p>
-              <p>{description}</p>
-              <Link href={`/events/${EID}/${slugify(title)}`}>
-                <a>Meer info</a>
-              </Link>
+              <p>
+                <a href={`mailto:${person[0].email}`}>{person[0].email}</a>
+              </p>
             </div>
-          ))}
+          )}
         </div>
-      </div>
+      </section>
+      <section>
+        <div>
+          <h2>Events door {company[0].name}</h2>
+          <div className="gallery">
+            {events.map(({ EID, title, start, end, description }) => (
+              <div key={EID}>
+                <h2>{title}</h2>
+                <p>
+                  {time(start)} tot {time(end)}
+                </p>
+                <p>{description}</p>
+                <Link href={`/events/${EID}/${slugify(title)}`}>
+                  <a>Meer info</a>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }
