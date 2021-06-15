@@ -10,14 +10,38 @@
     display: flex;
     height: 400px;
     width: 15%;
-    background: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: saturation;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: rgb(239, 128, 45);
     font-size: 30px;
+    border-radius: 20px;
+    &:first-of-type {
+      background-image: linear-gradient(black, black),
+        url("/images/agenda.jpeg");
+    }
+    &:nth-of-type(2) {
+      background-image: linear-gradient(black, black),
+        url("/images/nieuws.jpeg");
+    }
+    &:nth-of-type(3) {
+      background-image: linear-gradient(black, black), url("/images/leden.jpeg");
+    }
+    &:nth-of-type(4) {
+      background-image: linear-gradient(black, black),
+        url("/images/contact.jpeg");
+    }
+    &:nth-of-type(5) {
+      background-image: linear-gradient(black, black),
+        url("/images/lid_worden.jpeg");
+    }
     p {
       padding: 30px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 30px;
       color: white;
     }
   }
