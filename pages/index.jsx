@@ -65,10 +65,25 @@ export default function Home({ events, images }) {
               />
             </div>
           )}
-          <div>
+          {!events[0].poster && (
+            <div className={style.poster}>
+              <Image
+                src="/images/OGL_Final.svg"
+                alt={events[0].title}
+                layout="fill"
+                objectFit="contain"
+                quality={100}
+              />
+            </div>
+          )}
+          <div className={style.description}>
             <h2>{events[0].title}</h2>
-            <p>
-              {time(events[0].start)} tot {time(events[0].end)}
+            <p className="center">
+              {time(events[0].start)}
+              <br />
+              tot
+              <br />
+              {time(events[0].end)}
             </p>
             <p>{events[0].description}</p>
             <Link href={`/events/${events[0].EID}/${slugify(events[0].title)}`}>
@@ -81,10 +96,13 @@ export default function Home({ events, images }) {
           {events.slice(0, 5).map(({ EID, title, start, end, description }) => (
             <div key={EID}>
               <h2>{title}</h2>
-              <p>
-                {time(start)} tot {time(end)}
+              <p className="center">
+                {time(start)}
+                <br />
+                tot
+                <br />
+                {time(end)}
               </p>
-              <p>{description}</p>
               <Link href={`/events/${EID}/${slugify(title)}`}>
                 <a>Meer info</a>
               </Link>

@@ -4,6 +4,7 @@
     const time = t.toLocaleString("nl-BE", {
       timeZone: "UTC",
       dateStyle: "full",
+      timeStyle:"short",
     });
     return time;
   }

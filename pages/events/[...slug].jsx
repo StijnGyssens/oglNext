@@ -6,33 +6,35 @@ import { time } from "../../helpers";
 export default function Events({ event, fotos }) {
   return (
     <Layout>
-      {event[0].poster && (
-        <Image
-          src={`/images/${event[0].poster}`}
-          alt={event[0].title}
-          width={event[0].width}
-          height={event[0].height}
-          quality={100}
-        />
-      )}
-      <h1>{event[0].title}</h1>
-      <p>
-        {time(event[0].start)} tot {time(event[0].end)}
-      </p>
-      <p>{event[0].description}</p>
-      <h2>Foto's</h2>
-      <div className="gallery">
-        {fotos.map((foto) => (
-          <div key={foto.MID}>
-            <Image
-              src={`/images/${foto.path}`}
-              alt={foto.alt}
-              width={foto.width}
-              height={foto.height}
-            />
-          </div>
-        ))}
-      </div>
+      <section>
+        {event[0].poster && (
+          <Image
+            src={`/images/${event[0].poster}`}
+            alt={event[0].title}
+            width={event[0].width}
+            height={event[0].height}
+            quality={100}
+          />
+        )}
+        <h1>{event[0].title}</h1>
+        <p className="center">
+          {time(event[0].start)} tot {time(event[0].end)}
+        </p>
+        <p>{event[0].description}</p>
+        <h2>Foto's</h2>
+        <div className="gallery">
+          {fotos.map((foto) => (
+            <div key={foto.MID}>
+              <Image
+                src={`/images/${foto.path}`}
+                alt={foto.alt}
+                width={foto.width}
+                height={foto.height}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 }
