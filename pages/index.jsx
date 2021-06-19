@@ -118,7 +118,7 @@ export default function Home({ events, images }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const ev = await knex("events")
     .where("start", ">", new Date())
     .orderBy("start");

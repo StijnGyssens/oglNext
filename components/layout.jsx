@@ -2,11 +2,16 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "./layout.module.scss";
 import ScrollToTop from "react-scroll-up";
-import { IoIosArrowDropupCircle } from "react-icons/io";
+import { IoIosArrowDropupCircle, IoIosMenu } from "react-icons/io";
+import { useState } from "react";
 
 const title = "OGL Londerzeel";
 
 export default function Layout({ children }) {
+  const [show, setShow] = useState("true");
+  const handleToggle = () => {
+    setShow(!show);
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +23,7 @@ export default function Layout({ children }) {
         <Link href="/">
           <a>{title}</a>
         </Link>
-        <div>
+        <div className={show ? "hide" : "show"}>
           <Link href="/">
             <a>Home</a>
           </Link>
@@ -41,6 +46,9 @@ export default function Layout({ children }) {
             <a>Over ons</a>
           </Link>
         </div>
+        <span className={styles.menu} onClick={handleToggle}>
+          <IoIosMenu />
+        </span>
       </nav>
       <main>
         {children}
@@ -53,4 +61,13 @@ export default function Layout({ children }) {
       <footer></footer>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const show = () => document.querySelector(".navi").classList.toggle(".show");
+  return {
+    props: {
+      show,
+    },
+  };
 }

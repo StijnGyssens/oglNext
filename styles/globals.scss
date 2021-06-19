@@ -1,4 +1,5 @@
 @import "reset";
+@import url("https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css");
 
 html,
 body {
@@ -37,6 +38,10 @@ h2 {
 h3 {
   color: white;
   font-size: 20px;
+}
+h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 a {
@@ -99,4 +104,16 @@ p {
 .flex {
   display: flex;
   justify-content: space-around;
+}
+#my-map {
+  height: 300px;
+  width: 80vw;
+}
+
+.show {
+  top: 3.8rem;
+}
+
+.hide {
+  top: -1000px;
 }

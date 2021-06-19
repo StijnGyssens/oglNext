@@ -25,6 +25,10 @@
         }
       }
     }
+    .menu {
+      font-size: 30px;
+      display: none;
+    }
   }
   header {
     background: url("/images/header.png") top center/contain no-repeat fixed;
@@ -40,4 +44,25 @@
 .back {
   font-size: 40px;
   color: rgb(239, 128, 45);
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    nav {
+      padding: 1rem;
+      div {
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        transition: all 500ms;
+        padding: 10px;
+      }
+
+      .menu {
+        display: block;
+      }
+    }
+  }
 }
