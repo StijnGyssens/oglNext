@@ -90,3 +90,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 1200px) {
+  .pictureMenu {
+    flex-direction: column;
+    a {
+      width: 95%;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+  }
+  .events {
+    .next {
+      height: auto;
+    }
+  }
+}

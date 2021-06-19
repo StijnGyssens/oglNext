@@ -9,7 +9,8 @@ const title = "OGL Londerzeel";
 
 export default function Layout({ children }) {
   const [show, setShow] = useState("true");
-  const handleToggle = () => {
+  const handleToggle = (e) => {
+    e.preventDefault();
     setShow(!show);
   };
   return (
