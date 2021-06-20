@@ -76,7 +76,7 @@ export default function Contact() {
         <div>
           <form className={style.contactform}>
             <div>
-              <label htmlFor="name">naam*</label>
+              <label htmlFor="name">Naam*</label>
               <input
                 type="text"
                 name="name"
@@ -87,7 +87,7 @@ export default function Contact() {
               />
             </div>
             <div>
-              <label htmlFor="mail">email*</label>
+              <label htmlFor="mail">Email*</label>
               <input
                 type="email"
                 name="mail"
@@ -118,7 +118,7 @@ export default function Contact() {
               ></textarea>
             </div>
             <input
-              className={style.submit}
+              className={style.submit + " button"}
               type="submit"
               value="send"
               onClick={(e) => handleSubmit(e)}

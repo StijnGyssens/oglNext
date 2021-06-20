@@ -117,3 +117,16 @@ p {
 .hide {
   top: -1000px;
 }
+
+.button {
+  background: rgb(250, 137, 51);
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  border: 1px solid grey;
+  &:hover {
+    background: grey;
+  }
+}

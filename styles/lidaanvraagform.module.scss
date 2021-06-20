@@ -1,0 +1,22 @@
+.contactform {
+  width: 400px;
+  div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 20px;
+    label {
+      margin-bottom: 5px;
+    }
+    input,
+    select {
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+  }
+  .submit {
+    width: 100px;
+    margin: 20px auto;
+  }
+}

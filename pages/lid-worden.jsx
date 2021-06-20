@@ -80,7 +80,7 @@ export default function LidWorden() {
           exclusieve ledenpagina's.
         </p>
         <Link href="/lidaanvraagform">
-          <a>Aanvraag tot lidmaatschap</a>
+          <a className="button">Aanvraag tot lidmaatschap</a>
         </Link>
       </section>
     </Layout>

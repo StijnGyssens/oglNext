@@ -1,5 +1,6 @@
 import Layout from "../components/layout.jsx";
 import { useState } from "react";
+import style from "../styles/lidaanvraagform.module.scss";
 
 export default function Nieuws() {
   const [name, setName] = useState("");
@@ -72,72 +73,80 @@ export default function Nieuws() {
         </p>
       </section>
       <section>
-        <form>
+        <form className={style.contactform}>
           <div>
-            <label htmlFor="name">Naam bedrijf of handelszaak</label>
+            <label htmlFor="name">Naam bedrijf of handelszaak*</label>
             <input
               type="text"
               name="comp"
+              required
               value={comp}
               onChange={(e) => setComp(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="name">Persoonlijke naam</label>
+            <label htmlFor="name">Persoonlijke naam*</label>
             <input
               type="text"
               name="name"
+              required
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div>
             <fieldset>
-              <legend>Adres</legend>
+              <legend>Adres*</legend>
               <input
                 type="text"
                 name="street"
-                placeholder="straat"
+                required
+                placeholder="Straat"
                 value={street}
                 onChange={(e) => setStreet(e.target.value)}
               />
               <input
                 type="text"
                 name="huis"
-                placeholder="huisnummer"
+                required
+                placeholder="Huisnummer"
                 value={huis}
                 onChange={(e) => setHuis(e.target.value)}
               />
               <input
                 type="text"
                 name="city"
-                placeholder="stad"
+                required
+                placeholder="Stad"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               />
               <input
                 type="text"
                 name="post"
-                placeholder="postcode"
+                required
+                placeholder="Postcode"
                 value={post}
                 onChange={(e) => setPost(e.target.value)}
               />
             </fieldset>
           </div>
           <div>
-            <label htmlFor="nummer">Ondernemingsnummer</label>
+            <label htmlFor="nummer">Ondernemingsnummer*</label>
             <input
               type="text"
               name="nummer"
+              required
               value={nummer}
               onChange={(e) => setNummer(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="mail">email</label>
+            <label htmlFor="mail">email*</label>
             <input
               type="email"
               name="mail"
+              required
               value={mail}
               onChange={(e) => setMail(e.target.value)}
             />
@@ -161,10 +170,11 @@ export default function Nieuws() {
             />
           </div>
           <div>
-            <label htmlFor="werk">Aantal werknemers</label>
+            <label htmlFor="werk">Aantal werknemers*</label>
             <select
               id="werk"
               name="werk"
+              required
               onChange={(e) => setWerk(e.target.value)}
             >
               <option value="minder dan 5">minder dan 5</option>
@@ -172,7 +182,12 @@ export default function Nieuws() {
               <option value="meer dan 50">meer dan 50</option>
             </select>
           </div>
-          <input type="submit" value="send" onClick={(e) => handleSubmit(e)} />
+          <input
+            className={style.submit + " button"}
+            type="submit"
+            value="send"
+            onClick={(e) => handleSubmit(e)}
+          />
         </form>
       </section>
     </Layout>

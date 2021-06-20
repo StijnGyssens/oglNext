@@ -7,10 +7,20 @@
   margin: 0 auto;
   div {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     flex-direction: column;
     margin-top: 20px;
+    label {
+      margin-bottom: 5px;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+    }
   }
   .submit {
     width: 100px;

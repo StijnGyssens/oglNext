@@ -87,13 +87,13 @@ export default function Home({ events, images }) {
             </p>
             <p>{events[0].description}</p>
             <Link href={`/events/${events[0].EID}/${slugify(events[0].title)}`}>
-              <a>Meer info</a>
+              <a className="button">Meer info</a>
             </Link>
           </div>
         </div>
 
         <div className={style.eventlist}>
-          {events.slice(0, 5).map(({ EID, title, start, end }) => (
+          {events.slice(1, 6).map(({ EID, title, start, end }) => (
             <div key={EID}>
               <h2>{title}</h2>
               <p className="center">
@@ -104,7 +104,7 @@ export default function Home({ events, images }) {
                 {time(end)}
               </p>
               <Link href={`/events/${EID}/${slugify(title)}`}>
-                <a>Meer info</a>
+                <a className="button">Meer info</a>
               </Link>
             </div>
           ))}
