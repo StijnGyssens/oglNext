@@ -42,9 +42,17 @@
     background-color: grey;
   }
 }
-.back {
+.back,
+.media {
   font-size: 40px;
   color: rgb(239, 128, 45);
+}
+.media {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 70px;
+  left: 20px;
 }
 
 @media only screen and (max-width: 1200px) {

@@ -4,6 +4,7 @@ import styles from "./layout.module.scss";
 import ScrollToTop from "react-scroll-up";
 import { IoIosArrowDropupCircle, IoIosMenu } from "react-icons/io";
 import { useState } from "react";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const title = "OGL Londerzeel";
 
@@ -58,6 +59,17 @@ export default function Layout({ children }) {
             <IoIosArrowDropupCircle />
           </div>
         </ScrollToTop>
+        <div className={styles.media}>
+          <a href="">
+            <FaLinkedin />
+          </a>
+          <a href="">
+            <FaInstagram />
+          </a>
+          <a href="https://www.facebook.com/Winkelen-in-Londerzeel-OGL-vzw-376243609079641/?ref=hl">
+            <FaFacebook />
+          </a>
+        </div>
       </main>
       <footer></footer>
     </div>
