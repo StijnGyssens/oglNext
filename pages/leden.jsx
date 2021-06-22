@@ -20,7 +20,7 @@ export default function Leden({ company }) {
           id="myInput"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="search"
+          placeholder="Search"
         />
         <div className="fotoTekst">
           {compa.map((comp) => (
