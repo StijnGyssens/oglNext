@@ -67,6 +67,22 @@ p {
   }
 }
 
+@media only screen and (max-width: 1200px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
 .fotoTekst {
   display: flex;
   flex-wrap: wrap;
@@ -129,4 +145,11 @@ p {
   &:hover {
     background: grey;
   }
+}
+
+.imageContainer {
+  position: relative;
+  width: 40vw;
+  height: 300px;
+  margin: 0 auto;
 }

@@ -2,6 +2,7 @@ import Layout from "../../components/layout";
 import { knex } from "../../components/knex";
 import { time } from "../../helpers";
 import Link from "next/link";
+import Image from "next/image";
 import slugify from "slugify";
 
 export default function Leden({ company, person, events }) {
@@ -9,6 +10,15 @@ export default function Leden({ company, person, events }) {
     <Layout>
       <h1>{company[0].name}</h1>
       <section>
+        <div className="imageContainer">
+          <Image
+            src={`/images/leden/${company[0].logo}`}
+            alt={company[0].name}
+            layout="fill"
+            objectFit="contain"
+            quality={100}
+          />
+        </div>
         <div className="flex">
           <div>
             <h2>Adres:</h2>
@@ -44,7 +54,7 @@ export default function Leden({ company, person, events }) {
                 </p>
                 <p>{description}</p>
                 <Link href={`/events/${EID}/${slugify(title)}`}>
-                  <a>Meer info</a>
+                  <a className="button">Meer info</a>
                 </Link>
               </div>
             ))}

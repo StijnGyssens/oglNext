@@ -60,13 +60,16 @@ export default function Layout({ children }) {
           </div>
         </ScrollToTop>
         <div className={styles.media}>
-          <a href="">
+          <a href="" target="_blank">
             <FaLinkedin />
           </a>
-          <a href="">
+          <a href="" target="_blank">
             <FaInstagram />
           </a>
-          <a href="https://www.facebook.com/Winkelen-in-Londerzeel-OGL-vzw-376243609079641/?ref=hl">
+          <a
+            href="https://www.facebook.com/Winkelen-in-Londerzeel-OGL-vzw-376243609079641/?ref=hl"
+            target="_blank"
+          >
             <FaFacebook />
           </a>
         </div>

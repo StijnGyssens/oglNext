@@ -4,12 +4,12 @@ export default function (req, res) {
     let nodemailer = require('nodemailer')
     let transporter = nodemailer.createTransport({
       port: 465,
-      host:"mail.axc.nl",
-      // host: "smtp.gmail.com",
-      // service:"gmail",
+      // host:"mail.axc.nl",
+      host: "smtp.gmail.com",
+      service:"gmail",
       auth: {
-        // user: 'ogllonderzeel1840@gmail.com',
-        user:"info@mijnstageplaats.be",
+        user: 'ogllonderzeel1840@gmail.com',
+        // user:"info@mijnstageplaats.be",
         pass: process.env.MAILPASS,
       },
       secure: true,
@@ -17,8 +17,8 @@ export default function (req, res) {
       logger:true,
     })
     const mailData = {
-      // from: 'ogllonderzeel1840@gmail.com',
-      from: "info@mijnstageplaats.be",
+      from: 'ogllonderzeel1840@gmail.com',
+      // from: "info@mijnstageplaats.be",
       to: 'stijn.gyssens@gmail.com',
       subject: req.body.title,
       text: req.body.message + " | Sent from: " + req.body.mail,

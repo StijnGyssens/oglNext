@@ -6,7 +6,7 @@ import { time } from "../../helpers";
 export default function Events({ event, fotos }) {
   return (
     <Layout>
-      <section>
+      <section className="center">
         {event[0].poster && (
           <Image
             src={`/images/${event[0].poster}`}
@@ -17,7 +17,7 @@ export default function Events({ event, fotos }) {
           />
         )}
         <h1>{event[0].title}</h1>
-        <p className="center">
+        <p>
           {time(event[0].start)} tot {time(event[0].end)}
         </p>
         <p>{event[0].description}</p>
